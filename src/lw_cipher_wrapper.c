@@ -46,7 +46,7 @@ static int xtea_setkey_dec_wrap(void *ctx, const uint8_t *key,
     return lw_xtea_setkey((lw_xtea_context *) ctx, key, key_bitlen);
 }
 
-static void *xtea_ctx_alloc(uint8_t)
+static void *xtea_ctx_alloc(uint8_t para)
 {
     lw_xtea_context *ctx = (lw_xtea_context *) malloc(sizeof(lw_xtea_context));
     if (ctx == NULL) {
@@ -142,7 +142,7 @@ static int xxtea_setkey_dec_wrap(void *ctx, const uint8_t *key,
     return lw_xxtea_setkey((lw_xxtea_context *) ctx, key, key_bitlen);
 }
 
-static void *xxtea_ctx_alloc(uint8_t)
+static void *xxtea_ctx_alloc(uint8_t para)
 {
     lw_xxtea_context *ctx = (lw_xxtea_context *) malloc(
             sizeof(lw_xxtea_context));

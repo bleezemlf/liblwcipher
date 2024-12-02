@@ -22,6 +22,9 @@ int lw_xtea_setkey(lw_xtea_context *ctx, const uint8_t key[16], unsigned int key
 int lw_xtea_crypt_ecb(lw_xtea_context *ctx, int mode, const uint8_t input[8],
                       uint8_t output[8])
 {
+    if(mode != XTEA_ENCRYPT && mode != XTEA_DECRYPT) {
+        return LW_ERR_XTEA_BAD_INPUT_DATA;
+    }
     uint32_t i, num_rounds, v0, v1, sum, delta, k0, k1, k2, k3;
     num_rounds = 64;
     delta = 0x9E3779B9;
@@ -46,7 +49,7 @@ int lw_xtea_crypt_ecb(lw_xtea_context *ctx, int mode, const uint8_t input[8],
     }
     memcpy(output + 0, &v0, 4);
     memcpy(output + 4, &v1, 4);
-    return (0);
+    return 0;
 }
 
 int lw_xtea_crypt_cbc(lw_xtea_context *ctx, int mode, size_t length, uint8_t iv[8], const uint8_t *input, uint8_t *output)
