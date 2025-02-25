@@ -1,5 +1,5 @@
 # Low Weight cipher library
-
+给出了针对低功耗嵌入式设备常用的轻量级密码算法高效实现。
 | CipherType | key size(bits) | block_size(B) | MODE        |
 |------------|----------------|---------------|-------------|
 | XTEA       | 128            | 8             | ECB,CBC,CTR |
